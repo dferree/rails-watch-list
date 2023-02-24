@@ -1,0 +1,11 @@
+<div class="navbar" <%= @list.name %>> </div>
+
+<div class="card">
+  <% @list.bookmarks.each do |bookmark| %>
+  <img src="<%= bookmark.movie.poster_url %>" alt="">
+  <%= bookmark.movie.title %>
+
+  <%= bookmark.comment %>
+  <% end %>
+  <%= link_to "Add Bookmark to list", new_list_bookmark_path(@list.id), class: "btn btn-primary" %>
+</div>
