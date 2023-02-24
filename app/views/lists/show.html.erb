@@ -1,11 +1,13 @@
-<div class="navbar" <%= @list.name %>> </div>
 
-<div class="card">
+<%# <div class="navbar" <%= @list.name %>> </div> %>
+<%= @list.name %>>
+<div class="cards">
   <% @list.bookmarks.each do |bookmark| %>
-  <img src="<%= bookmark.movie.poster_url %>" alt="">
-  <%= bookmark.movie.title %>
-
-  <%= bookmark.comment %>
+    <div class="bookmark_card">
+      <img src="<%= bookmark.movie.poster_url %>" alt="" class="poster-images">
+      <%= bookmark.movie.title %>
+      <%= bookmark.comment %>
+      </div>
   <% end %>
-  <%= link_to "Add Bookmark to list", new_list_bookmark_path(@list.id), class: "btn btn-primary" %>
 </div>
+  <%= link_to "Add Bookmark to list", new_list_bookmark_path(@list.id), class: "btn btn-primary" %>
